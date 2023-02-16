@@ -17,7 +17,7 @@ export class UrlService {
     constructor(
         @InjectRepository(Url)
         private repo: Repository<Url>,
-      ) {}
+    ) {}
 
     async shortenUrl(url: ShortenURLDto) {
         const { longUrl } = url;
@@ -53,6 +53,16 @@ export class UrlService {
         } catch (error) {
             console.log(error);
             throw new UnprocessableEntityException('Server Error');
+        }
+    }
+
+    async redirect(urlCode: string) {
+        try {
+            const url = await this.repo.findOneBy({ urlCode });
+            if (url) return url;
+        } catch (error) {
+            console.log(error);
+            throw new NotFoundException('Resource Not Found');
         }
     }
 }

@@ -1,4 +1,7 @@
 import { Module } from '@nestjs/common';
+import { UrlService } from './url.service';
 
-@Module({})
+@Module({
+  providers: [UrlService]
+})
 export class UrlModule {}

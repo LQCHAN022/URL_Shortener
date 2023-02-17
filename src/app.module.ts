@@ -13,7 +13,7 @@ import { Url } from './url/url.entity';
               type: 'sqlite',
               database: 'URL.sqlite',
               entities: [Url],
-              synchronize: true,
+              synchronize: false, 
             }),
           ],
   controllers: [AppController],

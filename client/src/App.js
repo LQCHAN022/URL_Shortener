@@ -8,6 +8,7 @@ function App() {
     <div className="App">
       <h1>URL Shortener</h1>
       <input id="user_input"></input>
+			<br></br>
       <button id="submit_btn" onClick={() => shortenURL(setUrl)}>
         Shorten URL
       </button>

@@ -33,3 +33,6 @@ $ npm install
 ```bash
 $ npm run start
 ```
+
+### References
+<a>https://www.digitalocean.com/community/tutorials/how-to-build-a-type-safe-url-shortener-in-nodejs-with-nestjs<a>

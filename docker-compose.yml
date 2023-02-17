@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  api:
+    container_name: shorten_url_api
+    restart: unless-stopped
+    image: shorten_url_api:1.0.0
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      target: production 
+    ports:
+      - 3000:3000
+    networks:
+      - shared-network
+
+  client:
+    container_name: shorten_url_client
+    restart: unless-stopped
+    image: client_prod:1.0.0
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+      target: production 
+    ports:
+      - 3001:3001
+    networks:
+      - shared-network
+    depends_on:
+      - api
+
+networks:
+  shared-network:

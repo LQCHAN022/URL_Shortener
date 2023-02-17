@@ -4,7 +4,7 @@ import { ValidationPipe } from '@nestjs/common';
 
 const cors = require('cors');
 
-const whitelist = ['http://localhost:3001', 'null'];
+const whitelist = ['http://localhost:3001'];
 const corsOptions = {
   origin: function (origin, callback) {
     if (!origin || whitelist.indexOf(origin) !== -1) {

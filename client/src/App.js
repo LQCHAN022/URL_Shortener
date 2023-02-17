@@ -22,21 +22,16 @@ export default App;
 
 function shortenURL(setUrl) {
   let user_input = document.getElementById('user_input').value;
-  // console.log(user_input);
-  // fetch('http://localhost:3000/sanity_check', {
   fetch('http://localhost:3000/shorten', {
     method: 'POST',
-    // headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams({
       longUrl: user_input,
     }),
   })
     .then((res) => {
-      // console.log(res);
       return res.text();
     })
     .then((text) => {
-      // console.log(text);
       setUrl(text);
     });
 }
